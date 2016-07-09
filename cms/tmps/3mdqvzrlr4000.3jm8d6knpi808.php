@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo $ACTIVE_LANG; ?>">
+<head>
+<title><?php echo $TITLE; ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $ENCODING; ?>" />
+<meta name="generator" content="<?php echo $GENERATOR; ?>" />
+<meta name="geo.placename" content="<?php echo $GEO_PLACE; ?>">
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $THEME_CSS; ?>" />
+<link rel="shortcut icon" href="<?php echo $FAV_ICON; ?>" />
+<?php echo $HEAD; ?>
+
+</head>
+<body class="<?php echo $BODY_CLASS; ?>">
+<?php echo $BLOCK['0']; ?>
+
+<?php echo $BLOCK['1']; ?>
+
+
+<?php echo $CONTENT; ?>
+
+
+<?php echo $TAIL; ?>
+
+</body>
+</html>

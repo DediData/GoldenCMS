@@ -1,0 +1,72 @@
+Sun, 15 Nov 2015 00:53:03 +0330 [::1] ERROR CODE: [500]
+ERROR STATUS: [Internal Server Error]
+ERROR TEXT: [HTTP 500 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 500)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 00:53:10 +0330 [::1] ERROR CODE: [500]
+ERROR STATUS: [Internal Server Error]
+ERROR TEXT: [HTTP 500 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 500)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 00:54:09 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 00:54:26 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 00:54:52 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 00:55:22 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 00:55:55 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 00:57:47 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 00:58:38 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 01:14:26 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 01:16:23 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()
+Sun, 15 Nov 2015 01:17:49 +0330 [::1] ERROR CODE: [501]
+ERROR STATUS: [Not Implemented]
+ERROR TEXT: [HTTP 501 (GET /)]
+ERROR BACKTRACE: 
+#1 D:\xampp\htdocs\goldencms\cmf\CMF.php(125): Base->error(0 => 501)
+#2 D:\xampp\htdocs\goldencms\index.php(34): CMF::bootstrap()

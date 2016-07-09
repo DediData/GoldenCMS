@@ -1,0 +1,78 @@
+##
+# GoldenCMS 1.x htaccess file
+# Copyright (C) 2012-2013 goldencms.com. All rights reserved.
+# License: 
+##
+
+# Enable rewrite engine and route requests to framework
+RewriteEngine On
+
+# Some servers require you to specify the `RewriteBase` directive
+# In such cases, it should be the path (relative to the document root)
+# containing this .htaccess file
+#
+# RewriteBase /
+
+RewriteRule ^(lib|tmp)\/|\.(ini|php)$ - [R=404]
+RewriteRule ^(tmp)\/|\.ini$ - [R=404]
+
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule .* index.php [L,QSA]
+#for xampp/wamp use following line
+RewriteRule .* index.php/ [L,QSA]
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+
+### Compress ouput by mod_deflate
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript application/javascript text/x-js application/xhtml+xml application/xml
+</IfModule>
+
+# Disable ETags
+<IfModule mod_headers.c>
+	Header Unset ETag
+	FileETag none
+</IfModule>
+
+### Use expires headers for images
+### Also see: http://developer.yahoo.com/performance/rules.html#expires
+<IfModule mod_expires.c>
+	ExpiresActive 	On
+	ExpiresByType 	image/gif		  			A604800
+	ExpiresByType  image/jpg		 			A604800
+	ExpiresByType  image/jpeg		 			A604800
+	ExpiresByType 	image/png		  			A604800
+	ExpiresByType 	image/x-icon		  		A604800
+	ExpiresByType	application/x-javascript	A86400
+	ExpiresByType	application/javascript		A86400
+	ExpiresByType	text/javascript 		    A86400
+	ExpiresByType	text/css		            A86400
+	#ExpiresDefault				 				A604800
+</IfModule>
+
+### Prevent DDOS Attacks
+##RewriteCond %{HTTP:VIA}                 !^$ [OR]
+##RewriteCond %{HTTP:FORWARDED}           !^$ [OR]
+##RewriteCond %{HTTP:USERAGENT_VIA}       !^$ [OR]
+##RewriteCond %{HTTP:X_FORWARDED_FOR}     !^$ [OR]
+##RewriteCond %{HTTP:HTTP_PC_REMOTE_ADDR} !^$ [OR]
+##RewriteCond %{HTTP:HTTP_CLIENT_IP}      !^$ [OR]
+#RewriteCond %{HTTP:PROXY_CONNECTION}    !^$ [OR]
+#RewriteCond %{HTTP:XPROXY_CONNECTION}   !^$
+#RewriteRule ^(.*)$ - [F]
+
+#
+## Security rules. Comment them if they cause problems to your site
+#
+# Block out any script trying to base64_encode crap to send via URL
+# This rule is commented because it may cause some Elxis features to not work!
+# RewriteCond %{QUERY_STRING} base64_encode.*\(.*\) [OR]
+# Block out any script that includes a <script> tag in URL
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+# Block out any script trying to set a PHP GLOBALS variable via URL
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+# Block out any script trying to modify a _REQUEST variable via URL
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+# Send all blocked request to homepage with 403 Forbidden error!
+RewriteRule ^(.*)$ index.php [F,L]

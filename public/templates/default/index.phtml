@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ @ACTIVE_LANG }}">
+<head>
+<title>{{ @TITLE }}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={{ @ENCODING }}" />
+<meta name="generator" content="{{ @GENERATOR }}" />
+<meta name="geo.placename" content="{{ @GEO_PLACE }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ @THEME_CSS }}" />
+<link rel="shortcut icon" href="{{ @FAV_ICON }}" />
+{{ @HEAD }}
+</head>
+<body class="{{ @BODY_CLASS }}">
+{{ @BLOCK[0] }}
+{{ @BLOCK[1] }}
+
+{{ @CONTENT }}
+
+{{ @TAIL }}
+</body>
+</html>
