@@ -36,22 +36,22 @@ class BaseController extends Prefab {
 			/** Initialize an instance of module in framework */
 			$fw['mod_'.$this->moduleCode] = $this;
 			/** Load module locales */
-			$fw['LOCALES'] = $this->moduleDir . 'locales/';
+			$fw->LOCALES = $this->moduleDir . 'locales/';
 		}
 	}
 
 	/** Render module view */
 	protected function vrender($filename){
 		$fw = Base::Instance();
-		$fw['UI'] = $this->moduleDir . 'views/';
-		return $fw['view']->render( $filename );
+		$fw->UI = $this->moduleDir . 'views/';
+		return $fw->view->render( $filename );
 	}
 
 	/** Render module template */
 	protected function trender($filename){
 		$fw = Base::Instance();
-		$fw['UI'] = $this->moduleDir . 'views/';
-		return $fw['template']->render( $filename );
+		$fw->UI = $this->moduleDir . 'views/';
+		return $fw->template->render( $filename );
 	}
 
 	/** Install module */
@@ -91,8 +91,8 @@ class BaseController extends Prefab {
 		Accepts a pipe (|), comma (,), or semi-colon (;) as path separator.
 		*/
 		$fw = Base::Instance();
-		$fw['CONTENT'] = $fw['mod_core']->vrender('content.phtml');
-		$fw['UI'] = $fw['template_dir'];
-		echo $fw['template']->render( 'index.phtml');
+		$fw->CONTENT = $fw->mod_core->vrender('content.phtml');
+		$fw->UI = $fw->template_dir;
+		echo $fw->template->render( 'index.phtml');
 	}
 }

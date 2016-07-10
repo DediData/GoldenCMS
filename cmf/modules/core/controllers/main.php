@@ -21,37 +21,37 @@ class Main extends BaseController{
 	}
 
 	public function home_page($fw){
-		$fw['INTITLE'] = $this->moduleName;
-		$fw['INCONTENT'] = $this->moduleName;
+		$fw->INTITLE = $this->moduleName;
+		$fw->INCONTENT = $this->moduleName;
 	}
 	
 	/** Access Denied */
 	public function error_403($fw){
-		$fw['INTITLE'] = $fw['TITLE'] = $fw['dict.403_title'];
-		$fw['INCONTENT'] = $this->vrender('403.phtml');
+		$fw->INTITLE = $fw->TITLE = $fw['dict.403_title'];
+		$fw->INCONTENT = $this->vrender('403.phtml');
 	}
 
 	/** Not Found */
 	public function error_404($fw){
-		$fw['INTITLE'] = $fw['TITLE'] = $fw['dict.404_title'];
-		$fw['INCONTENT'] = $this->vrender('404.phtml');
+		$fw->INTITLE = $fw->TITLE = $fw['dict.404_title'];
+		$fw->INCONTENT = $this->vrender('404.phtml');
 	}
 
 	/** Method not allowed */
 	public function error_405($fw){
-		$fw['INTITLE'] = $fw['TITLE'] = $fw['dict.405_title'];
-		$fw['INCONTENT'] = $this->vrender('405.phtml');
+		$fw->INTITLE = $fw->TITLE = $fw['dict.405_title'];
+		$fw->INCONTENT = $this->vrender('405.phtml');
 	}
 
 	/** Internal server error */
 	public function error_500($fw){
-		$fw['INTITLE'] = $fw['TITLE'] = $fw['dict.500_title'];
-		$fw['INCONTENT'] = $this->vrender('500.phtml');
+		$fw->INTITLE = $fw->TITLE = $fw['dict.500_title'];
+		$fw->INCONTENT = $this->vrender('500.phtml');
 	}
 
 	/** Other errors */
 	public function error($fw){
-		$fw['INTITLE'] = $fw['TITLE'] = $fw['dict.err_title'];
-		$fw['INCONTENT'] = $this->vrender('error.phtml');
+		$fw->INTITLE = $fw->TITLE = $fw['dict.err_title'];
+		$fw->INCONTENT = $this->vrender('error.phtml');
 	}
 }
