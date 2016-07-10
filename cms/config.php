@@ -33,7 +33,7 @@ $fw->FALLBACK = 'en';
 /** Current site active language.
 	Value is used to load the appropriate language translation file in the folder pointed to by LOCALES.
 	If set to NULL, language is auto-detected from the HTTP Accept-Language request header. */
-$fw->DEFAULT_LANG = 'fa';
+$fw->DEFAULT_LANG = 'en';
 
 $fw->ACTIVE_LANGUAGES = array('en','fa');
 
