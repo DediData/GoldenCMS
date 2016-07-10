@@ -347,20 +347,22 @@ class CMF extends Prefab {
 	
 	public static function check_system () {
 		$fw = Base::instance();
-		/** Report all PHP errors if application mode is development */	
+
+		/** Report all PHP errors if application mode is development */
 		if ($fw->APP_MODE == 'development') {
-			ini_set('display_errors', 1);
+			@ini_set('display_errors', 1);
 			error_reporting(E_ALL);
 			$fw->DEBUG = 3;
 		} else {
-			ini_set('display_errors', 0);
+			@ini_set('display_errors', 0);
+			@ini_set('magic_quotes_runtime', 0);
 			error_reporting(0);
 			$fw->DEBUG = 0;
 		}
 
 		/** Check PHP version */
-		if ( version_compare( phpversion(), '5.3.0', '<' ) === true ) {
-			trigger_error('ERROR: Your PHP version is ' . phpversion() . '. GoldenCMF requires PHP 5.3.0 or newer.');
+		if ( version_compare( phpversion(), '5.3.4', '<' ) === true ) {
+			trigger_error('ERROR: Your PHP version is ' . phpversion() . '. GoldenCMF requires PHP 5.3.4 or newer.');
 		}
 
 		/** Check Perl Compatible Regular Expressions */
