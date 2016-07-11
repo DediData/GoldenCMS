@@ -1,23 +1,36 @@
 <?php
+/** BaseController Class */
+
 /**
- * @version		$Id: basecontroller.php 1 2012-05-20 18:18:12Z farhad $
- * @package		GoldenCMS
- * @copyright	Copyright (c) 2015 GoldenCMS (http://goldencms.com). All rights reserved.
- * @license		Commercial ( http://goldencms.com/license.html )
- * @author		Farhad Sakhaei ( http://goldencms.com )
- * @description Base Controller Class
+ * BaseController Class
+ *
+ * BaseController initialize other modules and their settings, routes, locales, ...
+ *
+ * @package    CMF
+ * @copyright  http://goldencms.com
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  */
 
 class BaseController extends Prefab {
-	/** @var string $moduleCode */
+
+	/**
+	 * The Code for module identify
+	 * @var string $moduleCode
+	 */
 	protected $moduleCode;
 
-	/** @var string $moduleName */
+	/**
+	 * Module Name
+	 * @var	string $moduleName
+	 */
 	protected $moduleName;
 	
 	/** @var string moduleDir */
 	protected $moduleDir;
 
+	/**
+	 * BaseController constructor.
+	 */
 	protected function __construct(){
 		/** Check if module active or not, if not active return false */
 		if (!$this->isactive()){
@@ -40,21 +53,35 @@ class BaseController extends Prefab {
 		}
 	}
 
-	/** Render module view */
+	/**
+	 * Render module view
+	 *
+	 * @param $filename
+	 *
+	 * @return mixed
+	 */
 	protected function vrender($filename){
 		$fw = Base::Instance();
 		$fw->UI = $this->moduleDir . 'views/';
 		return $fw->view->render( $filename );
 	}
 
-	/** Render module template */
+	/**
+	 * Render module template
+	 *
+	 * @param $filename
+	 *
+	 * @return mixed
+	 */
 	protected function trender($filename){
 		$fw = Base::Instance();
 		$fw->UI = $this->moduleDir . 'views/';
 		return $fw->template->render( $filename );
 	}
 
-	/** Install module */
+	/**
+	 * Install module
+	 */
 	protected function install(){
 		include( $this->moduleDir . 'install.php');
 	}
@@ -79,10 +106,16 @@ class BaseController extends Prefab {
 		return true;
 	}
 
+	/**
+	 * Runs before any route
+	 */
 	public static function beforeroute(){
 		
 	}
 
+	/**
+	 * Runs after any route
+	 */
 	public static function afterroute(){
 		/**
 		Load active template

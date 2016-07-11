@@ -1,4 +1,16 @@
 <?php
+/** Persian Language for Core Module */
+
+/**
+ * Persian Language for Core Module
+ *
+ * Persian Language for Core Module
+ *
+ * @package    CMF
+ * @copyright  http://goldencms.com
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ */
+
 return array(
 'dict.403_title'			=> 'خطای 403 : دستیابی به صفحه مورد نظر ممکن نمی باشد',
 'dict.403_content'			=> 'You do not have access to this page.',
