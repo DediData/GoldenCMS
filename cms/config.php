@@ -21,7 +21,7 @@ $fw->USE_THEMES = true;
 	Changing this value automatically calls the underlying date_default_timezone_set() function.
 	Sets the default timezone used by all date/time functions in a script
 	List of Supported Timezones : http://php.net/manual/en/timezones.php */
-$fw->TZ = 'Asia/Tehran';
+$fw->TZ = 'England/London';
 
 /** Default Language Base for multilingual site: subfolder
 	(/site.com/en-us) or subdomain (en-us.site.com) */

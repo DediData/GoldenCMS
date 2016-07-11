@@ -1,0 +1,14 @@
+<?php
+/** Install file for Core Module */
+
+/**
+ * Install file for Core Module
+ *
+ * Install file for Core Module
+ *
+ * @package    CMF
+ * @copyright  http://goldencms.com
+ * @license    http://goldencms.com/license.txt  MIT License
+ */
+
+$fw;

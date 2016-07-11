@@ -1,4 +1,16 @@
 <?php
+/** English Language for Core Module */
+
+/**
+ * English Language for Core Module
+ *
+ * English Language for Core Module
+ *
+ * @package    CMF
+ * @copyright  http://goldencms.com
+ * @license    http://goldencms.com/license.txt  MIT License
+ */
+
 return array(
 'dict.403_title'			=> 'Error 403:Access Denied',
 'dict.403_content'			=> 'You do not have access to this page.',

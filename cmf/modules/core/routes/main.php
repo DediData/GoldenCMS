@@ -1,4 +1,16 @@
 <?php
+/** Core Module Main Routes */
+
+/**
+ * Core Module Main Routes
+ *
+ * Core Module Main Routes
+ *
+ * @package    CMF
+ * @copyright  http://goldencms.com
+ * @license    http://goldencms.com/license.txt  MIT License
+ */
+
 /* Main Page (Multilingual[-Multiregional]) */
 if (isset($fw['LANG'])) {
 	$fw->route('GET @home_page: '.$fw['LANG'], 'core\controllers\Main->home_page');

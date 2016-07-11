@@ -1,11 +1,14 @@
 <?php
+/** GoldenCMS Index File */
+
 /**
- * @version		$Id: index.php 1 2012-05-20 18:18:12Z farhad $
- * @package		GoldenCMS
- * @copyright	Copyright (c) 2012 GoldenCMS (http://goldencms.com). All rights reserved.
- * @license		Commercial ( http://goldencms.com )
- * @author		Farhad Sakhaei
- * @description Front to the GoldenCMS application.
+ * GoldenCMS Index File
+ *
+ * The first file runs the system
+ *
+ * @package    Index
+ * @copyright  http://goldencms.com
+ * @license    http://goldencms.com/license.txt  MIT License
  */
 
 /** Current Working Directory */
@@ -25,10 +28,7 @@ $fw = require( CMF_DIR . 'libs/f3/base.php' );
 
 /** Search path for user-defined PHP classes that the framework will attempt to autoload at runtime.
 	Accepts a pipe (|), comma (,), or semi-colon (;) as path separator. */
-$fw['AUTOLOAD'] = 	CMF_DIR . '; ' .
-					CMF_DIR . '/libs/; ' .
-					CMF_DIR . '/libs/f3/; ' .
-					CMF_DIR . '/modules/; ';
+$fw['AUTOLOAD'] = 	CMF_DIR . '; ';
 
 /** Bootstrap application */
 CMF::bootstrap();

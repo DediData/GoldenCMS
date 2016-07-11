@@ -8,10 +8,10 @@
  *
  * @package    CMF
  * @copyright  http://goldencms.com
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @license    http://goldencms.com/license.txt  MIT License
  */
 
-namespace core\controllers;
+namespace modules\core\controllers;
 use BaseController;
 
 /**

@@ -1,21 +1,28 @@
 <?php
+/** Content Management Framework Class */
+
 /**
- * @version		$Id: CMF.php 1 2012-05-20 18:18:12Z farhad $
- * @package		GoldenCMS
- * @copyright	Copyright (c) 2015 GoldenCMS (http://goldencms.com). All rights reserved.
- * @license		Commercial ( http://goldencms.com/license.html )
- * @author		Farhad Sakhaei ( http://goldencms.com )
- * @description CMF Class
+ * Content Management Framework Class
+ *
+ * This is the main class of CMF
+ *
+ * @package    CMF
+ * @copyright  http://goldencms.com
+ * @license    http://goldencms.com/license.txt  MIT License
  */
 
 class CMF extends Prefab {
 
+	/**
+	 * Bootstrap of the CMF
+	 */
 	public static function bootstrap() {
 		$fw = Base::instance();
 		$fw->CMF_VERSION = '1.0';
 
-		/** Break Row and Tab */
+		/** Break Row */
 		define('BR',"\n");
+		/** Tab */
 		define('TAB',"\t");
 
 		/** Load framework settings */
@@ -39,17 +46,17 @@ class CMF extends Prefab {
 		$fw->UNLOAD = 'CMF::execution_time';
 
 		/** Initialize View system */
-		$fw->view = \View::instance();
+		$fw->view = View::instance();
 		//echo $fw->view->render('myview.html','text/html',array('urls'=>$urls));
 		//echo $fw->view->render('myview.xml','text/xml',array('urls'=>$urls));
 		//echo $fw->view->render('myview.csv','text/csv',array('urls'=>$urls));
 
 		/** Initialize Template system */
-		$fw->template = \Template::instance();
+		$fw->template = Template::instance();
 		//echo $fw->view->render('myview.html','text/html',array('urls'=>$urls));
 		//echo $fw->view->render('myview.xml','text/xml',array('urls'=>$urls));
 		//echo $fw->view->render('myview.csv','text/csv',array('urls'=>$urls));
-		
+
 		/** Check system settings */
 		CMF::check_system();
 
@@ -83,7 +90,7 @@ class CMF extends Prefab {
 
 		/** Load Language */
 		CMF::load_language();
-		
+
 		/** Load core routes */
 		include( CMF_DIR . 'modules/core/routes/main.php' );
 
@@ -107,11 +114,11 @@ class CMF extends Prefab {
 		$fw->HEAD 			= $fw->HEAD 		? $fw->HEAD			: '';
 		$fw->TAIL 			= $fw->TAIL 		? $fw->TAIL			: '';
 		$fw->BODY_CLASS		= $fw->BODY_CLASS	? ' body' 			: 'body';
-		
+
 		$fw->BLOCK[] = '';
 		$fw->BLOCK[] = '';
 		$fw->BLOCK[] = '';
-		
+
 		/** Set up error handling */
 		$fw->ONERROR = 'CMF::error_handler';
 	}
@@ -222,7 +229,7 @@ class CMF extends Prefab {
 		$fw = Base::instance();
 		if ( $fw->LANGUAGE_BASE === 'subfolder' ) {
 			/** Site is configured for subfolder language base */
-			
+
 			/** Extract requested language from uri */
 			preg_match('/^[\/]{1}(?<lang>[a-z]{2}(?:-[a-zA-Z]{2})?)(?:[\/]{1}.*)?$/', $fw->REQUESTED_URI, $tmp_array);
 			$fw->REQUESTED_LANG = isset($tmp_array['lang']) ? $tmp_array['lang'] : NULL;
@@ -251,17 +258,17 @@ class CMF extends Prefab {
 			}
 		} elseif ( $fw->LANGUAGE_BASE === 'subdomain' ) {
 			/** Site is configured for subdomain language base */
-			
+
 			/** No need to lang route for all subdomains */
 			$fw->LANG = NULL;
-			
+
 			/* Extract requested language from subdomain */
 			preg_match('/^(?<lang>[a-z]{2}(?:-[a-zA-Z]{2})?)[\.]{1}.*$/', $fw->SERVER_NAME, $tmp_array);
 			$fw->REQUESTED_LANG = isset($tmp_array['lang']) ? $tmp_array['lang'] : NULL;
-			
+
 			if ( isset($fw->REQUESTED_LANG) ) {
 				/** language code is in subdomain */
-				
+
 				/** Check if requested language code is in active site languages */
 				if (in_array($fw->REQUESTED_LANG, $fw->ACTIVE_LANGUAGES)){
 					/** Yes , requested language is in active site languages */
@@ -278,22 +285,22 @@ class CMF extends Prefab {
 				$fw->LANGUAGE = $fw->DEFAULT_LANG;
 			}
 		}
-		
+
 		/** Set html language property based on defined locale selected language */
 		$fw->ACTIVE_LANG = isset($fw->four_lang) ? $fw->four_lang : $fw->two_lang;
 	}
-	
+
 	/** Set up error handling */
 	public static function error_handler() {
 		$fw = Base::instance();
 		/** recursively clear existing output buffers */
 		while (ob_get_level())
 			ob_end_clean();
-		if ($fw->ERROR.code == 403) {
+		if ($fw->ERROR['code'] == 403) {
 			$fw->mock('GET @403');
-		} elseif($fw->ERROR.code == 404) {
+		} elseif($fw->ERROR['code'] == 404) {
 			$fw->mock('GET @404');
-		} elseif($fw->ERROR.code == 405) {
+		} elseif($fw->ERROR['code'] == 405) {
 			$fw->mock('GET @405');
 		} else {
 			$stack = '';
@@ -328,23 +335,26 @@ class CMF extends Prefab {
 				$i++;
 			}
 			$fw->TRACE_INFO = str_replace("\r\n", '<br />', $stack);
-			if($fw->ERROR.code == 500){
+			if($fw->ERROR['code'] == 500){
 				$fw->mock('GET @500');
 			}else{
 				$fw->mock('GET @error');
 			}
 			if ($fw->APP_MODE == 'development' && $fw->ERROR.code != '404' &&
 				$fw->ERROR.code != '403' && $fw->ERROR.code != '405') {
-				$code	= $fw->ERROR.code;
-				$status	= $fw->ERROR.status;
-				$text	= $fw->ERROR.text;
+				$code	= $fw->ERROR['code'];
+				$status	= $fw->ERROR['status'];
+				$text	= $fw->ERROR['text'];
 				//$trace	= $fw->ERROR.trace;
 				$report_str = "ERROR CODE: [$code]\nERROR STATUS: [$status]\nERROR TEXT: [$text]\nERROR BACKTRACE: \n$stack";
 				$fw->logger->write($report_str);
 			}
 		}
 	}
-	
+
+	/**
+	 * Checks the server compatibility and writable folders
+	 */
 	public static function check_system () {
 		$fw = Base::instance();
 

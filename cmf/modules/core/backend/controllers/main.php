@@ -1,17 +1,29 @@
 <?php
+/** Main Controller of Core Module Backend */
+
 /**
- * @version		$Id: main.php 1 2012-05-20 18:18:12Z farhad $
- * @package		GoldenCMS
- * @copyright	Copyright (c) 2015 GoldenCMS (http://goldencms.com). All rights reserved.
- * @license		Commercial ( http://goldencms.com/license.html )
- * @author		Farhad Sakhaei ( http://farhad.us )
- * @description Main Controller Class
+ * Main Controller of Core Module Backend
+ *
+ * Main Controller of Core Module Backend
+ *
+ * @package    CMF
+ * @copyright  http://goldencms.com
+ * @license    http://goldencms.com/license.txt  MIT License
  */
+
 
 namespace controllers;
 
+/**
+ * Class Main
+ *
+ * @package controllers
+ */
 class Main {
-	
+
+	/**
+	 * Index
+	 */
 	public function index () {
 		echo 'aaa';
 	}

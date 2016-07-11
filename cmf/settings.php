@@ -1,4 +1,15 @@
 <?php
+/** GoldenCMF Settings */
+
+/**
+ * GoldenCMF Settings
+ *
+ * GoldenCMF Settings
+ *
+ * @package    CMF
+ * @copyright  http://goldencms.com
+ * @license    http://goldencms.com/license.txt  MIT License
+ */
 
 $fw->CACHE = 'folder=' . CMS_DIR . 'cache/';
 
