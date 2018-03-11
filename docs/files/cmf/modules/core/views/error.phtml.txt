@@ -1,0 +1,10 @@
+<div id="error">
+	<p class="error-message"><?php echo $dict['err_content']; ?></p>
+	<p style="direction:ltr"><span class="error-code" style="direction:ltr"><?php printf($dict['err_code'], $ERROR['code']); ?></span>
+	<br /><span class="error-status" style="direction:ltr"><?php printf($dict['err_status'], $ERROR['status']); ?></span>
+	</p>
+	<?php if ( $APP_MODE == 'development' ){ ?>
+	<p class="error_text" style="direction:ltr"><?php printf($dict['err_text'], $ERROR['text']); ?></p>
+	<p class="error_trace" style="direction:ltr"><?php printf($dict['err_trace'], $TRACE_INFO); ?></p>
+	<?php } ?>
+</div><!--error-->

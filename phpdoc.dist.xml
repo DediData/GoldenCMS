@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+	<title><![CDATA[Golden CMS]]></title>
+	<parser>
+		<!--<target>phpdocs/output</target>-->
+		<target>d:\xampp\htdocs\GoldenCMS</target>
+		<encoding>utf8</encoding>
+		<item>TODO</item>
+		<item>FIXME</item>
+		<extensions>
+			<extension>php</extension>
+			<extension>php3</extension>
+			<extension>phtml</extension>
+			<extension>*</extension>
+		</extensions>
+	</parser>
+	<transformer>
+		<!--<target>phpdocs/docs</target>-->
+		<target>d:\xampp\htdocs\GoldenCMS\docs</target>
+	</transformer>
+	<logging>
+		<level>emerg</level>
+		<paths>
+			<default>d:\xampp\htdocs\GoldenCMS\docs\phpdocs\data\log\{DATE}.log</default>
+			<errors>d:\xampp\htdocs\GoldenCMS\docs\phpdocs\data\log\{DATE}.errors.log</errors>
+		</paths>
+	</logging>
+	<transformations>
+<!--		<template name="responsive" />-->
+		<template name="clean" />
+		<template name="new-black" />
+		<template name="old-ocean" />
+		<template name="responsive-twig" />
+		<template name="xml" />
+		<template name="zend" />
+	</transformations>
+	<files>
+		<!--<directory>.</directory>-->
+		<directory>D:\xampp\htdocs\GoldenCMS</directory>
+		<ignore>D:\xampp\htdocs\GoldenCMS\cmf\libs\*</ignore>
+	</files>
+</phpdoc>
+
+<!--
+cd D:\xampp\phpDocumentor2-2.9.0\bin
+php D:\xampp\phpDocumentor2-2.9.0\bin\phpdoc.php --directory "D:\xampp\htdocs\GoldenCMS" --target "d:\xampp\htdocs\GoldenCMSSite\docs" --encoding="utf-8" --ignore="D:\xampp\htdocs\GoldenCMS\cmf\libs\*" --ignore="*.phtml" --ignore="tmp*" --title="GoldenCMS"
+-->

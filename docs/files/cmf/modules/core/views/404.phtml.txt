@@ -1,0 +1,4 @@
+<div id="404">
+	<p class="error-message"><?php printf($dict['404_content'], $REQUESTED_URL); ?></p>
+</div><!--404-->
+
